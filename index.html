@@ -88,7 +88,12 @@
   }
   .entry > .what { min-width: 0; }
   .what .name { font-weight: 600; }
-  .what .name a { color: inherit; }
+  .what .name a, .maplink {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .what .name a:hover, .maplink:hover,
+  .what .name a:focus-visible, .maplink:focus-visible { border-bottom-color: var(--accent); color: var(--accent); }
   .where { color: var(--muted); font-size: 14px; }
   .desc { color: var(--muted); font-size: 14px; margin-top: 2px; }
   .flag {
@@ -154,14 +159,14 @@
       <div class="entry">
         <div class="when">6:00</div>
         <div class="what">
-          <div class="name">Dinner, The Stubborn Goat <span class="where">&middot; 1580 Argyle St</span></div>
+          <div class="name">Dinner, <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=The%20Stubborn%20Goat%2C%201580%20Argyle%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">The Stubborn Goat</a> <span class="where">&middot; 1580 Argyle St</span></div>
           <div class="desc">Downtown gastropub, local beer and comfort food.</div>
         </div>
       </div>
       <div class="entry">
         <div class="when">8:00</div>
         <div class="what">
-          <div class="name">The Big Blind Comedy Show <span class="flag">19+</span></div>
+          <div class="name"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Halifax%20Live%20Comedy%20Club%2C%201575%20Argyle%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">The Big Blind Comedy Show</a> <span class="flag">19+</span></div>
           <div class="where">1575 Argyle St, doors at 7</div>
           <div class="desc">Comics perform blindfolded, in support of the CNIB.</div>
         </div>
@@ -169,7 +174,7 @@
       <div class="entry">
         <div class="when">10:00</div>
         <div class="what">
-          <div class="name">Glitter Bomb at Stardust <span class="flag">19+</span></div>
+          <div class="name">Glitter Bomb at <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Stardust%20Halifax%20NS" target="_blank" rel="noopener">Stardust</a> <span class="flag">19+</span></div>
           <div class="where">The gay bar, dancing till 2 a.m.</div>
           <div class="desc">Quieter options: live music at the Goat or Durty Nelly's.</div>
         </div>
@@ -186,37 +191,37 @@
       <div class="entry">
         <div class="when">11:00</div>
         <div class="what">
-          <div class="name">Brunch, Black Sheep <span class="where">&middot; Brewery Market, 1496 Lower Water St</span></div>
+          <div class="name">Brunch, <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Black%20Sheep%2C%201496%20Lower%20Water%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">Black Sheep</a> <span class="where">&middot; Brewery Market, 1496 Lower Water St</span></div>
           <div class="desc">Alex lands at 11:15 and joins us after.</div>
         </div>
       </div>
       <div class="entry">
         <div class="when">Afternoon</div>
         <div class="what">
-          <div class="name">Seaport Farmers Market</div>
+          <div class="name"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Halifax%20Seaport%20Farmers%27%20Market" target="_blank" rel="noopener">Seaport Farmers Market</a></div>
           <div class="desc">Ten minutes down the boardwalk.</div>
-          <div class="name" style="margin-top:8px">Art Gallery of Nova Scotia</div>
+          <div class="name" style="margin-top:8px"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Art%20Gallery%20of%20Nova%20Scotia%2C%20Halifax%20NS" target="_blank" rel="noopener">Art Gallery of Nova Scotia</a></div>
           <div class="desc">The Maud Lewis painted house. Open till 5.</div>
         </div>
       </div>
       <div class="entry">
         <div class="when">2:30</div>
         <div class="what">
-          <div class="name">Live Irish dancing, Durty Nelly's <span class="where">&middot; 1645 Argyle St</span></div>
+          <div class="name">Live Irish dancing, <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Durty%20Nelly%27s%2C%201645%20Argyle%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">Durty Nelly's</a> <span class="where">&middot; 1645 Argyle St</span></div>
           <div class="desc">Connor performing, till 3:30.</div>
         </div>
       </div>
       <div class="entry">
         <div class="when">6:00</div>
         <div class="what">
-          <div class="name">Dinner, Caf&eacute; Lunette <span class="where">&middot; Queen's Marque, 1741 Lower Water St</span></div>
+          <div class="name">Dinner, <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Cafe%20Lunette%2C%201741%20Lower%20Water%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">Caf&eacute; Lunette</a> <span class="where">&middot; Queen's Marque, 1741 Lower Water St</span></div>
           <div class="desc">French bistro on the waterfront, Canada's 100 Best.</div>
         </div>
       </div>
       <div class="entry">
         <div class="when">8:15</div>
         <div class="what">
-          <div class="name">The Lower Deck <span class="where">&middot; Historic Properties</span></div>
+          <div class="name"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=The%20Lower%20Deck%2C%20Historic%20Properties%2C%20Halifax%20NS" target="_blank" rel="noopener">The Lower Deck</a> <span class="where">&middot; Historic Properties</span></div>
           <div class="desc">Signal Hill plays at 9:30. Going early so we get a table.</div>
         </div>
       </div>
@@ -233,14 +238,14 @@
         <div class="when">Morning</div>
         <div class="what">
           <div class="name">Sleep in</div>
-          <div class="desc">Optional: the Citadel, with the Noon Gun fired at 12. Be there by 11:30.</div>
+          <div class="desc">Optional: the <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Halifax%20Citadel%20National%20Historic%20Site" target="_blank" rel="noopener">Citadel</a>, with the Noon Gun fired at 12. Be there by 11:30.</div>
         </div>
       </div>
       <div class="entry">
         <div class="when">Afternoon</div>
         <div class="what">
           <div class="name soft">Open</div>
-          <div class="desc">Maritime Museum, the Dartmouth ferry, shopping, or nothing at all.</div>
+          <div class="desc"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Maritime%20Museum%20of%20the%20Atlantic%2C%20Halifax%20NS" target="_blank" rel="noopener">Maritime Museum</a>, the <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Halifax%20Ferry%20Terminal%2C%20Halifax%20NS" target="_blank" rel="noopener">Dartmouth ferry</a>, shopping, or nothing at all.</div>
         </div>
       </div>
       <div class="entry">
@@ -253,14 +258,14 @@
       <div class="entry">
         <div class="when">6:00</div>
         <div class="what">
-          <div class="name">Dinner, Via Condotti <span class="where">&middot; 1480 Queen St</span></div>
+          <div class="name">Dinner, <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Via%20Condotti%2C%201480%20Queen%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">Via Condotti</a> <span class="where">&middot; 1480 Queen St</span></div>
           <div class="desc">New Italian room just off Spring Garden, handmade pasta.</div>
         </div>
       </div>
       <div class="entry">
         <div class="when">8:30</div>
         <div class="what">
-          <div class="name">Halifax Ghost Walk <span class="where">&middot; meet at the Old Town Clock</span></div>
+          <div class="name"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Old%20Town%20Clock%2C%20Citadel%20Hill%2C%20Halifax%20NS" target="_blank" rel="noopener">Halifax Ghost Walk</a> <span class="where">&middot; meet at the Old Town Clock</span></div>
           <div class="desc">95 minutes of ghost stories, ending on the waterfront. Already paid, settle up with Jamie.</div>
         </div>
       </div>
