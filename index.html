@@ -1,5 +1,6 @@
 <title>Halifax Girls Weekend</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
   /* Layout: single reading column; each day a section with a narrow time rail beside the entries */
@@ -124,6 +125,40 @@
   .temps .lo { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
   .weather p { margin: 0; font-size: 14px; color: var(--muted); }
 
+  .day.is-past { opacity: 0.45; }
+  .day.is-today .dayname { color: var(--accent); }
+  .todaypill {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--bg); background: var(--accent);
+    border-radius: 3px; padding: 2px 7px; margin-left: 8px; vertical-align: 2px;
+    font-weight: 600;
+  }
+
+  .info { margin-top: 40px; display: grid; gap: 16px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--rule);
+    border-radius: 6px; padding: 18px;
+  }
+  .card h2 {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sand); margin: 0 0 12px; font-weight: 600;
+  }
+  .rows { display: grid; gap: 10px; }
+  .row { display: grid; grid-template-columns: 104px 1fr; gap: 12px; font-size: 14px; }
+  .row .k { color: var(--muted); }
+  .row .v { min-width: 0; }
+  .row .v strong { font-weight: 600; }
+  .money { display: grid; gap: 10px; font-size: 14px; }
+  .money .lbl {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sand); margin-bottom: 4px;
+  }
+  .money ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .money li { margin-bottom: 3px; }
+  @media (max-width: 420px) {
+    .row { grid-template-columns: 1fr; gap: 2px; }
+  }
+
   footer {
     margin-top: 32px; padding-top: 14px; border-top: 2px solid var(--accent);
     font-size: 13px; color: var(--muted); text-align: center;
@@ -143,7 +178,7 @@
     <div class="dates">October 24 &middot; 27, 2026</div>
   </header>
 
-  <section class="day">
+  <section class="day" data-date="2026-10-24">
     <div class="dayhead">
       <span class="dayname">Saturday 24</span>
       <span class="daytag">Arrival day</span>
@@ -182,7 +217,7 @@
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" data-date="2026-10-25">
     <div class="dayhead">
       <span class="dayname">Sunday 25</span>
       <span class="daytag">The big day</span>
@@ -228,7 +263,7 @@
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" data-date="2026-10-26">
     <div class="dayhead">
       <span class="dayname">Monday 26</span>
       <span class="daytag">Slow start, spooky finish</span>
@@ -279,12 +314,61 @@
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" data-date="2026-10-27">
     <div class="dayhead">
       <span class="dayname">Tuesday 27</span>
       <span class="daytag">Departures</span>
     </div>
   </section>
+
+  <div class="info">
+
+    <div class="card">
+      <h2>Where everyone is</h2>
+      <div class="rows">
+        <div class="row">
+          <span class="k">Moxy Halifax</span>
+          <span class="v"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Moxy%20Halifax%20Downtown%2C%205417%20Cogswell%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">5417 Cogswell St</a> &middot; 902-377-6699<br>Emily, Lindsay, Courtney, Ashley</span>
+        </div>
+        <div class="row">
+          <span class="k">Jamie's place</span>
+          <span class="v"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=2116%20Gottingen%20Street%2C%20Halifax%20NS" target="_blank" rel="noopener">2116 Gottingen St</a><br>KC, Melissa, Alex, Jamie</span>
+        </div>
+        <div class="row">
+          <span class="k">Jamie</span>
+          <span class="v">647-990-6560 &middot; texting is best</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>What's paid and what isn't</h2>
+      <div class="money">
+        <div>
+          <div class="lbl">Already covered, settle up with Jamie</div>
+          <ul>
+            <li>Ghost walk, Monday night</li>
+            <li>Comedy show tickets, Saturday night</li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">On the night</div>
+          <ul>
+            <li>All three dinners and Sunday brunch, separate bills</li>
+            <li>Drinks, cover at Stardust if there is one</li>
+            <li>Admission for the Citadel, the gallery and the Maritime Museum if you go, and the ferry</li>
+          </ul>
+        </div>
+        <div>
+          <div class="lbl">Separate</div>
+          <ul>
+            <li>The Moxy room, split between the four staying there</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
   <div class="weather">
     <h2>Forecast &amp; what to pack</h2>
@@ -302,3 +386,28 @@
   </footer>
 
 </div>
+
+<script>
+  (function () {
+    try {
+      var today = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'America/Halifax', year: 'numeric', month: '2-digit', day: '2-digit'
+      }).format(new Date());
+      document.querySelectorAll('.day[data-date]').forEach(function (el) {
+        var d = el.getAttribute('data-date');
+        if (d < today) {
+          el.classList.add('is-past');
+        } else if (d === today) {
+          el.classList.add('is-today');
+          var name = el.querySelector('.dayname');
+          if (name) {
+            var pill = document.createElement('span');
+            pill.className = 'todaypill';
+            pill.textContent = 'Today';
+            name.after(pill);
+          }
+        }
+      });
+    } catch (e) {}
+  })();
+</script>
