@@ -79,6 +79,18 @@
   }
   .dates { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 
+  .mark { width: 22px; height: 29px; color: var(--sand); flex: none; }
+  .ornament {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    margin-top: 18px; color: var(--sand);
+  }
+  .ornament .hr { width: 46px; height: 1px; background: var(--rule); }
+  .endmark {
+    display: flex; justify-content: center; margin-top: 28px; color: var(--sand);
+  }
+  .endmark .mark { width: 18px; height: 24px; opacity: 0.75; }
+  .card h2 .mark { width: 13px; height: 17px; vertical-align: -3px; margin-right: 6px; }
+
   .day { margin-top: 36px; }
   .dayhead {
     display: flex; justify-content: space-between; align-items: baseline;
@@ -187,6 +199,7 @@
     <div class="kicker">Girls Weekend</div>
     <h1>Halifax</h1>
     <div class="dates">October 24 &middot; 27, 2026</div>
+    <div class="ornament"><span class="hr"></span><svg class="mark" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 13 L24 4 L35 13"/><rect x="17" y="13" width="14" height="11"/><path d="M17 18.5 H31"/><path d="M19 24 H29 L33.5 55 H14.5 Z"/><path d="M16.6 40 H31.4"/><path d="M10 55 H38"/><path d="M8 18 L2 15 M40 18 L46 15"/></svg><svg class="mark" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="10" r="5.5"/><path d="M24 15.5 V55"/><path d="M12 23 H36"/><path d="M9 38 C9 50 16 55.5 24 55.5 C32 55.5 39 50 39 38"/><path d="M9 38 L4 41 M9 38 L12.5 33"/><path d="M39 38 L44 41 M39 38 L35.5 33"/></svg><span class="hr"></span></div>
   </header>
 
   <section class="day" data-date="2026-10-24">
@@ -382,7 +395,7 @@
   </div>
 
   <div class="weather">
-    <h2>Forecast &amp; what to pack</h2>
+    <h2><svg class="mark" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 13 L24 4 L35 13"/><rect x="17" y="13" width="14" height="11"/><path d="M17 18.5 H31"/><path d="M19 24 H29 L33.5 55 H14.5 Z"/><path d="M16.6 40 H31.4"/><path d="M10 55 H38"/><path d="M8 18 L2 15 M40 18 L46 15"/></svg>Forecast &amp; what to pack</h2>
     <div class="temps">
       <div><div class="d">Sat</div><div class="t">9&deg;</div><div class="lo">low 3&deg;</div></div>
       <div><div class="d">Sun</div><div class="t">16&deg;</div><div class="lo">low 3&deg;</div></div>
@@ -391,6 +404,8 @@
     </div>
     <p>No rain in the forecast. Mild afternoons, cold mornings and nights, so layers do all the work. Bring a jacket you can zip over a sweater, a scarf for the ghost walk, and shoes you can walk a few kilometres in. Saturday is the chilly one. Dinners are smart casual, nothing formal. Tennis on Monday is 16&deg;, so bring something you can move in.</p>
   </div>
+
+  <div class="endmark"><svg class="mark" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="10" r="5.5"/><path d="M24 15.5 V55"/><path d="M12 23 H36"/><path d="M9 38 C9 50 16 55.5 24 55.5 C32 55.5 39 50 39 38"/><path d="M9 38 L4 41 M9 38 L12.5 33"/><path d="M39 38 L44 41 M39 38 L35.5 33"/></svg></div>
 
   <footer>
     Dinner is the only fixed thing each day, everything else can move. It's all walkable.
