@@ -1,0 +1,292 @@
+<title>Halifax Girls Weekend</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: single reading column; each day a section with a narrow time rail beside the entries */
+  :root {
+    --bg: #fbf8f3;
+    --surface: #ffffff;
+    --fg: #16303d;
+    --muted: #5e7482;
+    --rule: #dfd7ca;
+    --accent: #1b5a6b;
+    --sand: #9a7f52;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1a21;
+      --surface: #142630;
+      --fg: #e8eef1;
+      --muted: #9cb0bb;
+      --rule: #233b47;
+      --accent: #7cc3d6;
+      --sand: #cbab74;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1a21;
+    --surface: #142630;
+    --fg: #e8eef1;
+    --muted: #9cb0bb;
+    --rule: #233b47;
+    --accent: #7cc3d6;
+    --sand: #cbab74;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 36px 48px;
+  }
+
+  header { text-align: center; padding-bottom: 22px; border-bottom: 2px solid var(--accent); }
+  .kicker {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sand); margin-bottom: 10px;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: clamp(42px, 13vw, 64px);
+    line-height: 1;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .dates { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+  .day { margin-top: 36px; }
+  .dayhead {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 12px; flex-wrap: wrap;
+    padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+  }
+  .dayname {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600; font-size: 22px; letter-spacing: 0.01em;
+  }
+  .daytag { font-size: 13px; font-style: italic; color: var(--sand); }
+
+  .entries { display: grid; gap: 18px; margin-top: 16px; }
+  .entry { display: grid; grid-template-columns: 62px 1fr; gap: 14px; align-items: start; }
+  .entry > .when {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sand); padding-top: 4px; min-width: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .entry > .what { min-width: 0; }
+  .what .name { font-weight: 600; }
+  .what .name a { color: inherit; }
+  .where { color: var(--muted); font-size: 14px; }
+  .desc { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .flag {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; color: var(--sand);
+    border: 1px solid var(--rule); border-radius: 3px;
+    padding: 1px 5px; margin-left: 4px; vertical-align: 2px;
+  }
+  .soft { color: var(--muted); }
+
+  .weather {
+    margin-top: 40px; background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 6px;
+    padding: 18px 18px 16px;
+  }
+  .weather h2 {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sand); margin: 0 0 12px; font-weight: 600;
+    font-family: "Public Sans", sans-serif;
+  }
+  .temps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+  .temps div { text-align: center; }
+  .temps .d { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .temps .t {
+    font-family: "Fraunces", Georgia, serif; font-size: 19px; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .temps .lo { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .weather p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  footer {
+    margin-top: 32px; padding-top: 14px; border-top: 2px solid var(--accent);
+    font-size: 13px; color: var(--muted); text-align: center;
+  }
+
+  @media (max-width: 420px) {
+    .entry { grid-template-columns: 54px 1fr; gap: 10px; }
+    .temps { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Girls Weekend</div>
+    <h1>Halifax</h1>
+    <div class="dates">October 24 &middot; 27, 2026</div>
+  </header>
+
+  <section class="day">
+    <div class="dayhead">
+      <span class="dayname">Saturday 24</span>
+      <span class="daytag">Arrival day</span>
+    </div>
+    <div class="entries">
+      <div class="entry">
+        <div class="when">Afternoon</div>
+        <div class="what">
+          <div class="name">Arrivals and settling in</div>
+          <div class="desc">Dal Open House for Emily. Otherwise free: Spring Garden Road, the waterfront, or a nap.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">6:00</div>
+        <div class="what">
+          <div class="name">Dinner, The Stubborn Goat <span class="where">&middot; 1580 Argyle St</span></div>
+          <div class="desc">Downtown gastropub, local beer and comfort food.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">8:00</div>
+        <div class="what">
+          <div class="name">The Big Blind Comedy Show <span class="flag">19+</span></div>
+          <div class="where">1575 Argyle St, doors at 7</div>
+          <div class="desc">Comics perform blindfolded, in support of the CNIB.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">10:00</div>
+        <div class="what">
+          <div class="name">Glitter Bomb at Stardust <span class="flag">19+</span></div>
+          <div class="where">The gay bar, dancing till 2 a.m.</div>
+          <div class="desc">Quieter options: live music at the Goat or Durty Nelly's.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day">
+    <div class="dayhead">
+      <span class="dayname">Sunday 25</span>
+      <span class="daytag">The big day</span>
+    </div>
+    <div class="entries">
+      <div class="entry">
+        <div class="when">11:00</div>
+        <div class="what">
+          <div class="name">Brunch, Black Sheep <span class="where">&middot; Brewery Market, 1496 Lower Water St</span></div>
+          <div class="desc">Alex lands at 11:15 and joins us after.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">Afternoon</div>
+        <div class="what">
+          <div class="name">Seaport Farmers Market</div>
+          <div class="desc">Ten minutes down the boardwalk.</div>
+          <div class="name" style="margin-top:8px">Art Gallery of Nova Scotia</div>
+          <div class="desc">The Maud Lewis painted house. Open till 5.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2:30</div>
+        <div class="what">
+          <div class="name">Live Irish dancing, Durty Nelly's <span class="where">&middot; 1645 Argyle St</span></div>
+          <div class="desc">Connor performing, till 3:30.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">6:00</div>
+        <div class="what">
+          <div class="name">Dinner, Caf&eacute; Lunette <span class="where">&middot; Queen's Marque, 1741 Lower Water St</span></div>
+          <div class="desc">French bistro on the waterfront, Canada's 100 Best.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">8:15</div>
+        <div class="what">
+          <div class="name">The Lower Deck <span class="where">&middot; Historic Properties</span></div>
+          <div class="desc">Signal Hill plays at 9:30. Going early so we get a table.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day">
+    <div class="dayhead">
+      <span class="dayname">Monday 26</span>
+      <span class="daytag">Slow start, spooky finish</span>
+    </div>
+    <div class="entries">
+      <div class="entry">
+        <div class="when">Morning</div>
+        <div class="what">
+          <div class="name">Sleep in</div>
+          <div class="desc">Optional: the Citadel, with the Noon Gun fired at 12. Be there by 11:30.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">Afternoon</div>
+        <div class="what">
+          <div class="name soft">Open</div>
+          <div class="desc">Maritime Museum, the Dartmouth ferry, shopping, or nothing at all.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">4:00</div>
+        <div class="what">
+          <div class="name">Tennis with Jennie <span class="where">&middot; for anyone who plays</span></div>
+          <div class="desc">Courts are five minutes from mine. An hour, then back by 5 to change.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">6:00</div>
+        <div class="what">
+          <div class="name">Dinner, Via Condotti <span class="where">&middot; 1480 Queen St</span></div>
+          <div class="desc">New Italian room just off Spring Garden, handmade pasta.</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">8:30</div>
+        <div class="what">
+          <div class="name">Halifax Ghost Walk <span class="where">&middot; meet at the Old Town Clock</span></div>
+          <div class="desc">95 minutes of ghost stories, ending on the waterfront. Already paid, settle up with Jamie.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day">
+    <div class="dayhead">
+      <span class="dayname">Tuesday 27</span>
+      <span class="daytag">Departures</span>
+    </div>
+  </section>
+
+  <div class="weather">
+    <h2>Forecast &amp; what to pack</h2>
+    <div class="temps">
+      <div><div class="d">Sat</div><div class="t">9&deg;</div><div class="lo">low 3&deg;</div></div>
+      <div><div class="d">Sun</div><div class="t">16&deg;</div><div class="lo">low 3&deg;</div></div>
+      <div><div class="d">Mon</div><div class="t">16&deg;</div><div class="lo">low 6&deg;</div></div>
+      <div><div class="d">Tue</div><div class="t">10&deg;</div><div class="lo">low 2&deg;</div></div>
+    </div>
+    <p>No rain in the forecast. Mild afternoons, cold mornings and nights, so layers do all the work. Bring a jacket you can zip over a sweater, a scarf for the ghost walk, and shoes you can walk a few kilometres in. Saturday is the chilly one. Dinners are smart casual, nothing formal. Tennis on Monday is 16&deg;, so bring something you can move in.</p>
+  </div>
+
+  <footer>
+    Dinner is the only fixed thing each day, everything else can move. It's all walkable.
+  </footer>
+
+</div>
